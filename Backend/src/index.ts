@@ -8,10 +8,17 @@ import { authRouter } from "./routes/authRouter.ts";
 import { notFoundHandler } from "./middlewares/notfound.ts";
 import { errorHandler } from "./middlewares/errorHandler.ts";
 import { openApiDocument } from "./docs/openapi.ts";
+import cors from "cors";
 
 const app: Application = express();
 const PORT = Number(process.env.PORT ?? 3000);
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  }),
+);
 
+app.use(cors());
 app.use(express.json());
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(openApiDocument));
 

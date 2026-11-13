@@ -1,2 +1,10 @@
-.env
 node_modules/
+.env
+.env.local
+dist/
+dist-ssr/
+*.log
+.DS_Store
+.vscode/
+.idea/
+
